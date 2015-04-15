@@ -41,8 +41,15 @@ namespace GuessThatNumber
 	            {
                     //adds to times guessed
                     TimesGuessed++;
+                    //checks if guessed number is number to guess
+                    if (GuessedNumber == NumberToGuess)
+                    {
+                        Console.WriteLine("you got it it only took you {0} trys!", TimesGuessed);
+                        Guessing = false;
+                        Console.ReadKey();
+                    }
                     //checks if guess is too high
-                    if (IsGuessTooHigh(GuessedNumber))
+                    else if (IsGuessTooHigh(GuessedNumber))
                     {
                         Console.WriteLine("Your number is too high! Try again!");
                         TimesGuessed++;
@@ -52,15 +59,7 @@ namespace GuessThatNumber
                     {
                         Console.WriteLine("Your number is too low! Try again!");
                         TimesGuessed++;
-                    }
-                    //must be the number and ends loop 
-                    else
-                    {
-                        Console.WriteLine("you got it it only took you {0} trys!", TimesGuessed);
-                        Guessing = false;
-                        Console.ReadKey();
-                    }
-
+                    } 
 	            }
                 //if input is not an integer
                 else
